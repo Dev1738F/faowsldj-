@@ -104,7 +104,7 @@
   <div class="band" id="buy">
     <div class="container inner">
       <span class="label">CA</span>
-      <span class="ca" id="contract-text">TBA</span>
+      <span class="ca" id="contract-text">Unreleased</span>
       <button class="btn copy" onclick="copyCA()">Copy</button>
     </div>
   </div>
@@ -231,7 +231,7 @@
   <script>
     function copyCA() {
       const text = document.getElementById('contract-text').innerText.trim();
-      if (!text || text === 'TBA') { alert('Contract address is not live yet.'); return; }
+      if (!text || text === 'Unreleased') { alert('Contract address is not live yet.'); return; }
       navigator.clipboard.writeText(text).then(() => alert('Contract copied!'));
     }
   </script>
