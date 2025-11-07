@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>$ApeStop</title>
+  <meta name="description" content="$ApeStop — The narrative stops here. Memes, mayhem, and ape-coded culture." />
+  <meta property="og:title" content="$ApeStop" />
+  <meta property="og:description" content="$ApeStop — The narrative stops here. Memes, mayhem, and ape-coded culture." />
+  <meta property="og:image" content="memes/G5CadVTXIAApJLt.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="memes/gApeStop.jpg" />
+  <style>
+    :root {
+      --bg: #000000;
+      --ink: #000000;
+      --brand: #000000;   /* black */
+      --accent: #e61701;  /* red */
+      --cta: #e61701;     /* red */
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; font-weight: 900; border: 4px solid #000; border-radius: 999px; background: var(--accent); color: var(--brand); box-shadow: 6px 6px 0 #000; transition: transform .15s ease, box-shadow .15s ease; text-transform: uppercase; }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 #000; }
+
+    header { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 4px solid #000; }
+    header .nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; height: 72px; }
+    header .nav .links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .chip { padding: 8px 14px; border: 3px solid #000; border-radius: 999px; font-weight: 800; background: #fff; }
+
+    .hero { background: var(--cta); color: #fff; border-bottom: 8px solid #000; text-align: center; padding: 56px 0 32px; }
+    .hero h1 { font-size: clamp(40px, 10vw, 96px); margin: 0; font-weight: 1000; letter-spacing: .02em; }
+    .hero p { font-size: clamp(16px, 3.5vw, 28px); max-width: 900px; margin: 12px auto 0; font-weight: 800; }
+    .hero .cta { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+    .band { border-top: 4px solid #000; background: var(--brand); color: #fff; }
+    .band .inner { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 14px 0; flex-wrap: wrap; }
+    .band .label { font-weight: 900; }
+    .band .ca { font-weight: 900; word-break: break-all; background: #0003; padding: 6px 10px; border-radius: 10px; color: #fff; }
+    .copy { cursor: pointer; }
+
+    section { padding: 64px 0; }
+    .two-col { display: grid; grid-template-columns: 1fr; gap: 28px; }
+    @media (min-width: 960px) { .two-col { grid-template-columns: 1.1fr 0.9fr; } }
+    .card { background: #fff; border: 4px solid #000; border-radius: 16px; padding: 24px; box-shadow: 8px 8px 0 #000; }
+    h2.section-title { font-size: clamp(32px, 6vw, 64px); margin: 0 0 18px; font-weight: 1000; text-align: center; }
+
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .step .num { font-size: 56px; font-weight: 1000; margin-bottom: 8px; color: var(--accent); }
+
+    .tokenomics { background: var(--accent); border-top: 4px solid #000; border-bottom: 4px solid #000; }
+    .tokenomics .section-title { color: #000; }
+    .token-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; justify-items: center; }
+    .token-wrap .token-card { max-width: 320px; text-align: center; }
+    .token-wrap img { width: 100%; height: auto; border: 4px solid #000; border-radius: 14px; }
+
+    .memes { background: var(--bg); }
+    .meme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .meme-grid img { width: 100%; height: 100%; object-fit: cover; border: 4px solid #000; border-radius: 16px; box-shadow: 6px 6px 0 #000; }
+
+    footer { background: #000; color: #fff; padding: 48px 0; border-top: 4px solid #000; }
+    footer .marquee { overflow: hidden; white-space: nowrap; border-top: 2px solid #fff; margin-top: 18px; padding-top: 12px; }
+    footer .marquee .line { display: inline-block; animation: marquee 30s linear infinite; font-weight: 1000; font-size: 32px; letter-spacing: .02em; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* Research */
+    .research { background: #fff; }
+
+    .yt-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(180px, 1fr); gap: 16px; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+    .yt-item { scroll-snap-align: start; border: 4px solid #000; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 6px 6px 0 #000; }
+    .yt-card-link { display:block; position:relative; }
+    .yt-thumb { width:100%; height:160px; object-fit:cover; display:block; background:#111; }
+    .yt-meta { position:absolute; inset:auto 0 0 0; background:linear-gradient(transparent, rgba(0,0,0,.7)); color:white; padding:8px 10px; font-weight:900; font-size:14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="chip">$ApeStop</div>
+      <div class="links">
+        <a class="chip" href="#about">About</a>
+        <a class="chip" href="#how">How to Buy</a>
+        <a class="chip" href="#research">Research</a>
+        <a class="chip" href="#tokenomics">Tokenomics</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>$APESTOP</h1>
+      <p>The narrative stops here. Community-first, meme-powered. If they can spin it, we can stop it — together.</p>
+      <div class="cta">
+        <a class="btn" href="#buy">Buy</a>
+        <a class="btn" href="https://x.com/i/communities/1986256084311617860" target="_blank">Follow on X</a>
+        <a class="btn" href="https://t.me/ApeStopSOL" target="_blank">Telegram</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="band" id="buy">
+    <div class="container inner">
+      <span class="label" style="color: green;">CA:</span>
+      <span class="ca" id="contract-text">Unreleased</span>
+      <button class="btn copy" onclick="copyCA()">Copy</button>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="container two-col">
+      <div>
+        <h2 class="section-title">ABOUT</h2>
+        <div class="card">
+          <p><strong>$ApeStop</strong> is a culture coin and a story: apes coordinating to slam the brakes on weak narratives. No utility promises, no roadmaps to nowhere - just memes and movement.</p>
+          <p>Build the lore. Post the memes. No bullshit. That’s the <strong>$ApeStop</strong> way.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <img src="memes/G5CadVTXIAApJLt.jpg" alt="$ApeStop" style="width:100%;border-radius:10px;"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="container">
+      <h2 class="section-title">HOW TO BUY</h2>
+      <div class="steps">
+        <div class="card step">
+          <div class="num">1</div>
+          <h3>Create a wallet</h3>
+          <p>Install a Solana wallet like Phantom (mobile or browser extension).</p>
+          <p><a class="btn" href="https://phantom.com/download" target="_blank" rel="noopener">Get Phantom</a></p>
+        </div>
+        <div class="card step">
+          <div class="num">2</div>
+          <h3>Get some SOL</h3>
+          <p>Buy SOL in-wallet or transfer from an exchange so you can swap when we launch.</p>
+          <p><a class="btn" href="https://phantom.com/learn/guides/how-to-buy-ethereum-eth-polygon-matic-and-solana-sol" target="_blank" rel="noopener">SOL Guide</a></p>
+        </div>
+        <div class="card step">
+          <div class="num">3</div>
+          <h3>Launch details</h3>
+          <p>We’ll announce the CA and links on X and Telegram. Always verify from official posts.</p>
+          <p><a class="btn" href="https://t.me/ApeStopSOL" target="_blank" rel="noopener">View Telegram</a></p>
+        </div>
+        <div class="card step">
+          <div class="num">4</div>
+          <h3>Join the movement</h3>
+          <p>Post your best $ApeStop memes. The culture writes the chart.</p>
+          <p><a class="btn" href="https://x.com/i/communities/1986256084311617860" target="_blank" rel="noopener">View X Community</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tokenomics" id="tokenomics">
+    <div class="container">
+      <h2 class="section-title">TOKENOMICS</h2>
+      <div class="token-wrap">
+        <div class="token-card">
+          <img src="memes/locked.jpg" style="width:300px;border-radius:10px; height: 200px;" alt="LP" />
+          <h3>Tokens Locked on Launch</h3>
+          <p>2.5% of the liquidity pool will be locked upon launch. No rugs — only memes.</p>
+        </div>
+        <div class="token-card">
+          <img src="memes/mint revoke.jpg" style="width:300px;border-radius:10px; height: 200px;" alt="Mint" />
+          <h3>MINT REVOKED</h3>
+          <p>Fixed supply. No team mint. Clean and simple.</p>
+        </div>
+        <div class="token-card">
+          <img src="memes/launch.jpg" style="width:300px;border-radius:10px; height: 200px;" alt="Fair" />
+          <h3>FAIR LAUNCH</h3>
+          <p>No presale. No whitelist. Everyone starts equal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="research">
+    <div class="container">
+      <h2 class="section-title">RESEARCH</h2>
+      <div class="card">
+        <!-- Edit: duplicate a .yt-item and replace the video ID in the src URL -->
+        <div class="yt-scroll">
+          <div class="yt-row">
+            <div class="yt-item">
+              <a class="yt-card-link" href="https://www.youtube.com/watch?v=5HFehFpU_8M" target="_blank" rel="noopener">
+                <img class="yt-thumb" src="https://i.ytimg.com/vi/5HFehFpU_8M/hqdefault.jpg" alt="YouTube thumbnail: How Reddit almost CRASHED the Economy with a meme." />
+                <div class="yt-meta">How Reddit almost CRASHED the Economy with a meme.</div>
+              </a>
+            </div>
+            <div class="yt-item">
+              <a class="yt-card-link" href="https://youtu.be/YFQ-v1jCpF0" target="_blank" rel="noopener">
+                <img class="yt-thumb" src="https://i.ytimg.com/vi/YFQ-v1jCpF0/hqdefault.jpg" alt="YouTube thumbnail: dQw4w9WgXcQ" />
+                <div class="yt-meta">Reddit vs Wallstreet - GameStop</div>
+              </a>
+            </div>
+            <div class="yt-item">
+              <a class="yt-card-link" href="https://youtu.be/Bya-t5yhwa0" target="_blank" rel="noopener">
+                <img class="yt-thumb" src="https://i.ytimg.com/vi/Bya-t5yhwa0/hqdefault.jpg" alt="YouTube thumbnail: 9bZkp7q19f0" />
+                <div class="yt-meta">The Gamestop Stock Situation</div>
+              </a>
+            </div>
+            <div class="yt-item">
+              <a class="yt-card-link" href="https://www.youtube.com/watch?v=jRHlprpFVPc" target="_blank" rel="noopener">
+                <img class="yt-thumb" src="https://i.ytimg.com/vi/jRHlprpFVPc/hqdefault.jpg" alt="YouTube thumbnail: 3JZ_D3ELwOQ" />
+                <div class="yt-meta">Jim Cramer tells investors...</div>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <h3>$APESTOP</h3>
+      <p style="opacity:.9;font-weight:700;max-width:900px">Disclaimer: $APESTOP is a meme coin with no intrinsic value or expectation of financial return. Entertainment only. Always DYOR.</p>
+      <div class="marquee">
+        <div class="line">$APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP </div>
+        <div class="line" aria-hidden="true">$APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP $APESTOP </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyCA() {
+      const text = document.getElementById('contract-text').innerText.trim();
+      if (!text || text === 'Unreleased') { alert('Contract address is not live yet.'); return; }
+      navigator.clipboard.writeText(text).then(() => alert('Contract copied!'));
+    }
+  </script>
+</body>
+</html>
